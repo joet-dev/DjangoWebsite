@@ -1,3 +1,16 @@
+import datetime
+
 from django.db import models
+from django.utils import timezone
+
 
 # Create your models here.
+
+class PortfolioItem(models.Model):
+    item_title = models.CharField(max_length=200)
+    item_date = models.DateTimeField('date published')
+    item_hits = models.IntegerField(default=0)
+    item_img_id = models.CharField(max_length=150)
+
+    def __str__(self):
+        return self.item_title
