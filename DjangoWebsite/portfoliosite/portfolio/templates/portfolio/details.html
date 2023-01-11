@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
+    <head>
+      <meta charset="UTF-8" />
+      {% load static %}
+      <link rel="stylesheet" type="text/css" href="{% static 'styles/styles.css' %}" />
+      <title>Joseph.T Website</title>
+    </head>
+  <body>
+    <header>
+      <h1 class="logo">Joseph.T</h1>
+    </header>
+      <img src="{% static 'images/portfolioitems/'|add:item.item_img_id|add:'.png' %}"/>
+      <p><b>
+        {{ item.item_title }}
+      </b></p>
+      <p>{{ item.item_hits }}</p>
+      <p class="item-txt">Created: {{ item.item_date }}</p>
+  </body>
 </html>

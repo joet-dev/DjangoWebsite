@@ -110,6 +110,7 @@ header {
   background: var(--teal);
   text-align: center;
   position: fixed;
+  color: white;
   z-index: 999;
   width: 100%;
 }
@@ -209,10 +210,12 @@ nav a:hover {
     display: grid;
     grid-template-columns: 1fr auto minmax(600px, 1fr) 1fr;
   }
+
   .logo {
     grid-column: 2/3;
     color: white;
   }
+
   nav {
     all: unset;
     grid-column: 3/4;
@@ -248,4 +251,26 @@ input[type=text], textarea {
   margin: auto 0; 
   color: #0f0f0f; 
   margin-left: 10px; 
+}
+
+.about-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 20px;
+  padding: 10px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  grid-template-columns:
+    repeat(auto-fit, minmax(15rem, 1fr));
+}
+
+
+.about-text {
+    padding-left: 20px;
+}
+
+.profile-img {
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
 }

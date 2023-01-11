@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.template import loader
 
 from .models import PortfolioItem
@@ -16,6 +16,15 @@ def index(request):
 
 
 def detail(request, item_id):
-    return HttpResponse("DETAIL SCREEN. ITEM %s." % item_id)
+    try:
+        item = PortfolioItem.objects.get(pk=item_id)
+        template = loader.get_template('portfolio/details.html')
+        context = {
+            'item': item,
+        }
+    except PortfolioItem.DoesNotExist:
+        raise Http404("Item does not exist")
+
+    return HttpResponse(template.render(context, request))
 
 
