@@ -10,7 +10,7 @@
 </head>
   <body>
     <header>
-      <h1 class="logo">Joseph T</h1>
+      <h1 class="logo">Joseph.T</h1>
       <input type="checkbox" id="nav-toggle" class="nav-toggle">
       <nav>
         <ul>
@@ -43,8 +43,7 @@
             {% for item in latest_portfolio_list %}
               <div class="grid-item">
                 <a href="/portfolio/{{ item.id }}/">
-                  {% load static %}
-                  <img src="{% static 'images/default.png' %}"/>
+                  <img src="{% static 'images/portfolioitems/'|add:item.item_img_id|add:'.png' %}"/>
                   <p><b>
                     {{ item.item_title }}
                   </b></p>
@@ -60,46 +59,44 @@
       </section>
 
 
-  <!--    <section class="about" id="about">-->
-  <!--      <h2>About</h2>-->
-  <!--      <div> -->
-  <!--        <div>-->
-  <!--          <img src="/images/profile.jpg" alt="profile" width="200" height="250">-->
-  <!--        </div>-->
-  <!--        <div>-->
-  <!--          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Convallis posuere morbi leo urna molestie at elementum eu facilisis. Viverra accumsan in nisl nisi. Mauris augue neque gravida in fermentum et sollicitudin ac orci. Vestibulum sed arcu non odio euismod lacinia at quis risus. Egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla. </p> -->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--    </section>-->
+      <section class="about" id="about">
+        <h2>About</h2>
+        <div>
+          <div>
+            <img src="{% static 'images/profile.jpg' %}" alt="profile" width="200" height="250">
+          </div>
+          <div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Convallis posuere morbi leo urna molestie at elementum eu facilisis. Viverra accumsan in nisl nisi. Mauris augue neque gravida in fermentum et sollicitudin ac orci. Vestibulum sed arcu non odio euismod lacinia at quis risus. Egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla. </p>
+          </div>
+        </div>
+      </section>
 
-
-  <!--    <section class="contact" id="contact">-->
-  <!--      &lt;!&ndash; Show STS and SQS use &ndash;&gt;-->
-  <!--      <h2>Contact</h2>-->
-
-  <!--      <form>-->
-  <!--        <label class="email-text">If you are curious to know more please contact me!</label><br><br>-->
-  <!--        <form id="contact_form" action="#">-->
-  <!--          <div class="row">-->
-  <!--            <label class="required" for="name"></label><br/>-->
-  <!--            <input id="name" class="input" name="name" type="text" value="" size="40" placeholder="Name"/><br/>-->
-  <!--            <span it="name_check" class="error_message"></span>-->
-  <!--          </div>-->
-  <!--          <div class="row">-->
-  <!--            <label class="required" for="email"></label><br/>-->
-  <!--            <input id="email" class="input" name="email" type="text" value="" size="40" placeholder="Email"/><br/>-->
-  <!--            <span it="email_check" class="error_message"></span>-->
-  <!--          </div>-->
-  <!--          <div class="row">-->
-  <!--            <label class="required" for="message"></label><br/>-->
-  <!--            <textarea id="message" class="input" name="message" rows="7" cols="35" placeholder="Message"></textarea><br/>-->
-  <!--            <span it="message_check" class="error_message"></span>-->
-  <!--          </div>-->
-  <!--          <br/>-->
-  <!--          <input id="submit_form" class="btn" type="submit" value="Send Email"/>-->
-  <!--      </form>-->
-  <!--    </section>-->
-  <!--  </div>-->
+<!--  Needs to be connected to a managed email service for the emails to send -->
+      <section class="contact" id="contact">
+        <h2>Contact</h2>
+        <form>
+          <label class="email-text">If you are curious to know more please contact me!</label><br><br>
+          <form id="contact_form" action="#">
+            <div class="row">
+              <label class="required" for="name"></label><br/>
+              <input id="name" class="input" name="name" type="text" value="" size="40" placeholder="Name"/><br/>
+              <span it="name_check" class="error_message"></span>
+            </div>
+            <div class="row">
+              <label class="required" for="email"></label><br/>
+              <input id="email" class="input" name="email" type="text" value="" size="40" placeholder="Email"/><br/>
+              <span it="email_check" class="error_message"></span>
+            </div>
+            <div class="row">
+              <label class="required" for="message"></label><br/>
+              <textarea id="message" class="input" name="message" rows="7" cols="35" placeholder="Message"></textarea><br/>
+              <span it="message_check" class="error_message"></span>
+            </div>
+            <br/>
+            <input id="submit_form" class="btn" type="submit" value="Send Email"/>
+        </form>
+      </section>
+    </div>
 
 
   <!--  <div class="footer-container">-->
