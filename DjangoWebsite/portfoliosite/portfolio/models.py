@@ -4,8 +4,6 @@ from django.db import models
 from django.utils import timezone
 
 
-# Create your models here.
-
 class PortfolioItem(models.Model):
     item_title = models.CharField(max_length=200)
     item_date = models.DateTimeField('date published')
