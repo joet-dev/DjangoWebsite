@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:300,600');
+
+:root {
+  --teal: rgba(0, 0, 170, .85);
+}
+
+body {
+    margin: 0;
+    background: black;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+  
+    background-color: #333;
+    background-blend-mode: multiply;
+    background-size: cover;
+}
+
+a {
+    all: unset;
+}
+
+.main {
+  padding-top: 100px;
+  padding-left: 2em;
+  padding-right: 2em;
+  max-width: 1000px;
+  margin: auto;
+  color: white;
+}
+
+.btn-container {
+  background-color: black;
+}
+
+.btn {
+  border: none;
+  background-color: white;
+  cursor: pointer; 
+  padding: 8px;
+}
+
+.btn:hover {
+  background-color: var(--teal)
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 20px;
+  padding: 10px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  grid-template-columns: 
+    repeat(auto-fit, minmax(15rem, 1fr));
+}
+
+
+.grid-item {
+  background-color: black;
+  text-align: center;
+  font-size: 30px;
+  height: 100%;
+  width: 100%;
+  aspect-ratio: 2/1;
+  border: 5px solid rgb(255, 255, 255);
+}
+
+.grid-item:hover {
+  color: var(--teal); 
+  border: 5px solid var(--teal);
+}
+
+.item-txt {
+  font-size: 12px;
+}
+
+.home {
+  position: relative;
+  display: block;
+}
+
+.about {
+  position: relative;
+  display: grid;
+  place-items: left;
+  clear: both;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.contact {
+  position: relative;
+  display: grid;
+  place-items: left;
+  padding-bottom: 50px;
+}
+
+.footer-container {
+  text-align: center;
+  color: white;
+  background: black;
+  padding: 15px; 
+  display: block;
+}
+
+header {
+  background: var(--teal);
+  text-align: center;
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+}
+
+/* changed this from the tutorial video to
+   allow it to gain focus, making it tabbable */
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 1em;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  display: block;
+  background: white;
+  height: 2px;
+  width: 2em;
+  border-radius: 2px;
+  position: relative;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  content: '';
+  position: absolute;
+}
+
+.nav-toggle-label span::before {
+  bottom: 7px;
+}
+
+.nav-toggle-label span::after {
+  top: 7px;
+}
+
+nav {
+  position: absolute;
+  text-align: left;
+  top: 100%;
+  left: 0;
+  background: var(--teal);
+  width: 100%;
+  transform: scale(1, 0);
+  transform-origin: top;
+  transition: transform 400ms ease-in-out;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  margin-bottom: 1em;
+  margin-left: 1em;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+}
+
+nav a:hover {
+  color: #000;
+}
+
+.nav-toggle:checked ~ nav {
+  transform: scale(1,1);
+}
+
+.nav-toggle:checked ~ nav a {
+  opacity: 1;
+  transition: opacity 250ms ease-in-out 250ms;
+}
+
+@media screen and (min-width: 800px) {
+  .nav-toggle-label {
+    display: none;
+  }
+  
+  header {
+    display: grid;
+    grid-template-columns: 1fr auto minmax(600px, 1fr) 1fr;
+  }
+  .logo {
+    grid-column: 2/3;
+    color: white;
+  }
+  nav {
+    all: unset;
+    grid-column: 3/4;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    
+  }
+  
+  nav ul {
+    display: flex;
+  }
+  nav a {
+    opacity: 1;
+  }
+  nav li {
+    margin-left: 3em;
+    margin-bottom: 0;
+  }
+
+}
+
+#contact_form {
+  background-color: var(--teal);
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+input[type=text], textarea {
+  text-align: center;
+  background-color: white; 
+  border-radius: 0px;
+  margin: auto 0; 
+  color: #0f0f0f; 
+  margin-left: 10px; 
+}

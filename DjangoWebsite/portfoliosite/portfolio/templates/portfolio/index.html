@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'styles/styles.css' %}" />
+  <title>Joseph T Website</title>
+</head>
+  <body>
+    <header>
+      <h1 class="logo">Joseph T</h1>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <label for="nav-toggle" class="nav-toggle-label">
+        <span></span>
+      </label>
+    </header>
+
+    <!-- Create a grid to layout information
+    Where the user can sort by popularity or most recent
+    When a user clicks on the portfolio item record the hit-->
+    <div class="main">
+
+      <section class="home" id="home">
+        <h2>My Portfolio</h2>
+
+<!--        <div id="btn-container">-->
+<!--          <span>Filter:</span>-->
+<!--          <button class="btn" id="all">All</button>-->
+<!--          <button class="btn" id="fav">Favourite</button>-->
+<!--        </div>-->
+
+        {% if latest_portfolio_list %}
+          <div class="grid-container" id="items">
+            {% for item in latest_portfolio_list %}
+              <div class="grid-item">
+                <a href="/portfolio/{{ item.id }}/">
+                  {% load static %}
+                  <img src="{% static 'images/default.png' %}"/>
+                  <p><b>
+                    {{ item.item_title }}
+                  </b></p>
+                  <p>{{ item.item_hits }}</p>
+                  <p class="item-txt">Created: {{ item.item_date }}</p>
+                </a>
+              </div>
+            {% endfor %}
+          </div>
+        {% else %}
+          <p>No Portfolio Items are available at the moment. Sorry!</p>
+        {% endif %}
+      </section>
+
+
+  <!--    <section class="about" id="about">-->
+  <!--      <h2>About</h2>-->
+  <!--      <div> -->
+  <!--        <div>-->
+  <!--          <img src="/images/profile.jpg" alt="profile" width="200" height="250">-->
+  <!--        </div>-->
+  <!--        <div>-->
+  <!--          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Convallis posuere morbi leo urna molestie at elementum eu facilisis. Viverra accumsan in nisl nisi. Mauris augue neque gravida in fermentum et sollicitudin ac orci. Vestibulum sed arcu non odio euismod lacinia at quis risus. Egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla. </p> -->
+  <!--        </div>-->
+  <!--      </div>-->
+  <!--    </section>-->
+
+
+  <!--    <section class="contact" id="contact">-->
+  <!--      &lt;!&ndash; Show STS and SQS use &ndash;&gt;-->
+  <!--      <h2>Contact</h2>-->
+
+  <!--      <form>-->
+  <!--        <label class="email-text">If you are curious to know more please contact me!</label><br><br>-->
+  <!--        <form id="contact_form" action="#">-->
+  <!--          <div class="row">-->
+  <!--            <label class="required" for="name"></label><br/>-->
+  <!--            <input id="name" class="input" name="name" type="text" value="" size="40" placeholder="Name"/><br/>-->
+  <!--            <span it="name_check" class="error_message"></span>-->
+  <!--          </div>-->
+  <!--          <div class="row">-->
+  <!--            <label class="required" for="email"></label><br/>-->
+  <!--            <input id="email" class="input" name="email" type="text" value="" size="40" placeholder="Email"/><br/>-->
+  <!--            <span it="email_check" class="error_message"></span>-->
+  <!--          </div>-->
+  <!--          <div class="row">-->
+  <!--            <label class="required" for="message"></label><br/>-->
+  <!--            <textarea id="message" class="input" name="message" rows="7" cols="35" placeholder="Message"></textarea><br/>-->
+  <!--            <span it="message_check" class="error_message"></span>-->
+  <!--          </div>-->
+  <!--          <br/>-->
+  <!--          <input id="submit_form" class="btn" type="submit" value="Send Email"/>-->
+  <!--      </form>-->
+  <!--    </section>-->
+  <!--  </div>-->
+
+
+  <!--  <div class="footer-container">-->
+  <!--    <p class="footer">Author: Joseph Thurlow</p>-->
+  <!--    <p class="footer">Copyright &copy 2022</p>-->
+  <!--  </footer>-->
+
+    <!-- <script src="/scripts/items.js" defer></script>  -->
+  <!--  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>-->
+  <!--  <script type="text/javascript">-->
+  <!--    var ITEM_API_URL = 'https://uxz2c4l1s8.execute-api.us-east-1.amazonaws.com/first/items';-->
+  <!--    var CONTACT_API_URL = 'https://uxz2c4l1s8.execute-api.us-east-1.amazonaws.com/first/email';-->
+  <!--    var date_option = {hour: 'numeric', minute: 'numeric', year: 'numeric', month: 'short', day: 'numeric'};-->
+
+  <!--    $(document).ready(function(){-->
+  <!--      $.ajax({-->
+  <!--        type: 'GET',-->
+  <!--        url: ITEM_API_URL,-->
+
+  <!--        success: function(data){-->
+  <!--          $('#items').html('');-->
+
+  <!--          data.body.forEach(function(item){-->
+
+  <!--            let date = new Date(item.Time*1000);-->
+
+  <!--            $('#items').append(-->
+  <!--              '<div class="grid-item">'-->
+  <!--                + '<img src="images/' + item.ItemName + '.png"/>'-->
+  <!--                + '<p><b>' + item.ItemName + '</b></p>'-->
+  <!--                + '<p>Hits: ' + item.Hits + '</p>'-->
+  <!--                + '<p class="item-txt">Created: ' + date.toLocaleDateString("en-US", date_option) + '</p></div>'-->
+  <!--            );-->
+  <!--          })-->
+  <!--        }-->
+  <!--      });-->
+  <!--    });-->
+
+  <!--    $('#addButton').on('click', function(){-->
+  <!--      $.ajax({-->
+  <!--        type: 'POST',-->
+  <!--        url: ITEM_API_URL,-->
+  <!--        data: JSON.stringify({"ItemName": $('#item-name').val()}),-->
+  <!--        contentType: "application/json",-->
+
+  <!--        success: function(data){-->
+  <!--          document.getElementById('item-name').value='';-->
+  <!--          location.reload();-->
+  <!--        }-->
+  <!--      });-->
+
+  <!--      return false;-->
+  <!--    });-->
+
+  <!--    $('#submit_form').on('click', function(){-->
+  <!--      if ($('#name').val()==""||$('#email').val()==""||$('#message').val()=="")-->
+  <!--        {-->
+  <!--        alert("All fields are required, please try again.");-->
+  <!--        }-->
+
+  <!--      $.ajax({-->
+  <!--        type: 'POST',-->
+  <!--        url: CONTACT_API_URL,-->
+  <!--        data: JSON.stringify({-->
+  <!--          "name": $('#name').val(),-->
+  <!--          "email": $('#email').val(),-->
+  <!--          "message": $('#message').val(),-->
+  <!--        }),-->
+  <!--        contentType: "application/json",-->
+
+  <!--        success: function(data){-->
+  <!--          document.getElementById('name').value='';-->
+  <!--          document.getElementById('email').value='';-->
+  <!--          document.getElementById('message').value='';-->
+  <!--        }-->
+  <!--      })-->
+  <!--    })-->
+  <!--  </script>-->
+  </body>
+</html>
