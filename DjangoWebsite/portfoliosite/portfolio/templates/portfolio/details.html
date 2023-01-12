@@ -10,11 +10,24 @@
     <header>
       <h1 class="logo">Joseph.T</h1>
     </header>
-      <img src="{% static 'images/portfolioitems/'|add:item.item_img_id|add:'.png' %}"/>
-      <p><b>
-        {{ item.item_title }}
-      </b></p>
-      <p>{{ item.item_hits }}</p>
-      <p class="item-txt">Created: {{ item.item_date }}</p>
+    <div class="main">
+      <div class="detail-container">
+        <div class="detail-display">
+          <img class= "detail-image" src="{% static 'images/portfolioitems/'|add:item.item_img_id|add:'.png' %}"/>
+          <div class="detail-title">
+            <p style="text-align: left; font-size: 2em;">
+              <b>
+              {{ item.item_title }} 
+              </b>
+            </p>
+            <div style="text-align: right;">
+              <small>Views: {{ item.item_hits }}</small><br>
+              <small>Created: {{ item.item_date }}</small>
+            </div>
+          </div>
+          <p style="text-align: left;">BLAH BLAH BLAH BLAH</p>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
