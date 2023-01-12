@@ -284,6 +284,7 @@ input[type=text], textarea {
   display: inline-block; 
   text-align: center; 
   max-width: 600px;
+  padding-bottom: 10px;
 }
 
 .detail-title {
