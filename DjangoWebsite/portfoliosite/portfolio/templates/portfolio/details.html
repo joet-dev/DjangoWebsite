@@ -9,6 +9,17 @@
   <body>
     <header>
       <h1 class="logo">Joseph.T</h1>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <nav>
+        <ul>
+          <li><a href="/portfolio/#home">Home</a></li>
+          <li><a href="/portfolio/#about">About</a></li>
+          <li><a href="/portfolio/#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <label for="nav-toggle" class="nav-toggle-label">
+        <span></span>
+      </label>
     </header>
     <div class="main">
       <div class="detail-container">
@@ -21,11 +32,10 @@
               </b>
             </p>
             <div style="text-align: right;">
-              <small>Views: {{ item.item_hits }}</small><br>
               <small>Created: {{ item.item_date }}</small>
             </div>
           </div>
-          <p style="text-align: left;">{{ item.item_details }}</p>
+          <div class="detail-text-block">{{ item.item_details |safe }}</div>
         </div>
       </div>
     </div>

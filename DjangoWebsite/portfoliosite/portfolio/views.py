@@ -3,9 +3,6 @@ from django.template import loader
 
 from .models import PortfolioItem
 
-
-# Create your views here.
-
 def index(request):
     latest_portfolio_list = PortfolioItem.objects.order_by('-item_date')[:5]
     template = loader.get_template('portfolio/index.html')
