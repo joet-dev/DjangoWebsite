@@ -24,9 +24,8 @@
     <div class="main">
       <div class="detail-container">
         <div class="detail-display">
-          <img class= "detail-image" src="{% static 'images/portfolioitems/'|add:item.item_img_id|add:'.png' %}"/>
           <div class="detail-title">
-            <p style="text-align: left; font-size: 2em;">
+            <p style="text-align: left; font-size: 2em; margin-top: 0.5em; margin-bottom: 0.5em;">
               <b>
               {{ item.item_title }} 
               </b>
@@ -35,7 +34,24 @@
               <small>Created: {{ item.item_date }}</small>
             </div>
           </div>
-          <div class="detail-text-block">{{ item.item_details |safe }}</div>
+          <div class="detail-text-block summary-text-block">
+            <p>{{ item.item_summary }}</p>
+          </div>
+          <img class= "detail-image" src="{% static 'images/portfolioitems/'|add:item.item_img_id|add:'.png' %}"/>
+          
+          <div class="detail-text-block" style="padding-top: 2em;">{{ item.item_details |safe }}</div>
+          <p>Click the link below to visit the github repository:</p>
+          <div class="github-link-block">
+            <img class="github-logo" src="{% static 'images/links/github-mark/github-mark-white.png' %}"/>
+            <b id="link-text"></b>
+            <script one="{{ item.item_git_link}}">
+              let link = document.currentScript.getAttribute('one');
+              document.getElementById("link-text").innerHTML = link.substring(19);
+            </script>
+            <a href="{{ item.item_git_link }}">
+              <span class="link-spanner"></span>
+            </a>
+          </div>
         </div>
       </div>
     </div>

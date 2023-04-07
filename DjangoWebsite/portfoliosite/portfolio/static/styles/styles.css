@@ -6,6 +6,11 @@
   --teal: rgba(0, 214, 170, .85);
 }
 
+a { 
+  color: inherit;
+  text-decoration: inherit;
+}
+
 body {
     margin: 0;
     background: black;
@@ -17,10 +22,6 @@ body {
     background-size: cover;
 }
 
-a {
-    all: unset;
-}
-
 .main {
   padding-top: 100px;
   padding-left: 2em;
@@ -29,7 +30,7 @@ a {
   margin: auto;
   color: white;
 }
-
+/*  */
 .btn-container {
   background-color: black;
 }
@@ -55,7 +56,6 @@ a {
   grid-template-columns: 
     repeat(auto-fit, minmax(15rem, 1fr));
 }
-
 
 .grid-item {
   background-color: black;
@@ -266,7 +266,6 @@ input[type=text], textarea {
   repeat(auto-fit, minmax(15rem, 1fr));
 }
 
-
 .about-text {
   padding-left: 20px;
 }
@@ -300,11 +299,47 @@ input[type=text], textarea {
   max-width: 100%;
   height: auto;
   width: auto\9;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.github-link-block { 
+  position: relative;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  padding-top: 1em; 
+  padding-bottom: 1em;
+  z-index: 998;
+}
+
+.link-spanner {
+  position:absolute; 
+  width:100%;
+  height:100%;
+  top:0;
+  left: 0;
+  z-index: 999;
+}
+
+.github-logo {
+  height: 35px;
+  width: auto;
 }
 
 .detail-text-block {
   text-align: left;
-  text-indent: 2ex;
   line-height: 1.5; 
   padding-bottom: 10px; 
+}
+
+.summary-text-block {
+  padding-bottom: 20px;
+}
+
+.anchor {
+  display: block;
+  height: 100px;
+  margin-top: -100px;
+  visibility: hidden;
 }
